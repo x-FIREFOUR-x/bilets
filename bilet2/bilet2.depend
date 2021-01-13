@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1610539040 source:d:\project c++\bilets\bilet2\main.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	<bits/stdc++.h>
+	"head.h"
+	<ctime>
+
+1610538850 d:\project c++\bilets\bilet2\head.h
+	<iostream>
+	<cstdlib>
+	<string>
+	<bits/stdc++.h>
+
+1610538850 source:d:\project c++\bilets\bilet2\head.cpp
+	<iostream>
+	<cstdlib>
+	<string>
+	<bits/stdc++.h>
+	"head.h"
+

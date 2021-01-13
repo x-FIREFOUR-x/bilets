@@ -15,6 +15,7 @@ int** create (int n, int m)
         for (int j =0; j < m; j++)
         {
             A[i][j] = rand()%101;
+           //A[i][j] = 4096;
             cout << fixed << setw(3) << A[i][j] << " " ;
         }
         cout << endl;
