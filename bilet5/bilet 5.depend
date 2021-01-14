@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1610632558 source:d:\project c++\bilets\bilet 5\head.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+	"head.h"
+
+1610632336 d:\project c++\bilets\bilet 5\head.h
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+
+1610632684 source:d:\project c++\bilets\bilet 5\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+	"head.h"
+
+1610632558 source:d:\project c++\bilets\bilet5\head.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+	"head.h"
+
+1610632336 d:\project c++\bilets\bilet5\head.h
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+
+1610632684 source:d:\project c++\bilets\bilet5\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<ctime>
+	<cstdlib>
+	"head.h"
+
