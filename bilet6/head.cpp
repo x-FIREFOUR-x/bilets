@@ -20,9 +20,9 @@ int** create_matrix (int n)
 
     return Q;
 }
-void print_matrix (int** Q, int n)
+void print_matrix (int** Q, int m ,int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
@@ -32,7 +32,7 @@ void print_matrix (int** Q, int n)
     }
 }
 
-int  search_special (int** Q, int n)
+int  search_special (int** Q, int& m, int n, int& line)
 {
     int special;
     bool is_special = false;
@@ -43,6 +43,7 @@ int  search_special (int** Q, int n)
             if (i >= j && i+j >= n - 1 && Q[i][j] > Q[i][j-1] && Q[i][j] < Q[i][j+1])
             {
                 special =  Q[i][j];
+                line = i;
                 is_special = true;
                 break;
             }
@@ -52,27 +53,51 @@ int  search_special (int** Q, int n)
     }
 
     if (is_special)
+    {
         cout << endl << "Special element: " << special << endl;
+        m++;
+    }
     else
+    {
         cout << endl << "!Matrix have not special element!" << endl;
+    }
 
 
     return special;
 }
 
-string* create_string_matrix (int** Q, int n)
+int** add_line(int** Q, int m, int n, int line)
 {
-    string* S = new string [n-1];
-    cout << endl << "String matrix:" << endl;
+    //m++;
+    int** A = new int* [m];
+    for (int i = 0; i < m; i++)
+        A[i] = new int [n];
 
-     for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+           A[i][j] = Q[i][j];
+        }
+
+    }
+    for(int i =0; i < n; i++)
+         A[m-1][i] = Q[line][i];
+
+    return A;
+}
+string* create_string_matrix (int** Q,int m, int n)
+{
+    string* S = new string [m-1];
+    cout << endl << "String matrix1:" << endl;
+
+     for (int i = 0; i < m - 1; i++)
     {
         for (int j = 0; j < n; j++)
         {
             cout << Q[i][j] * Q[i+1][j] << " ";
             string s = to_string(Q[i][j] * Q[i+1][j]);
             int len_word = s.length();
-
             for (int t = 1; t < len_word; t++)
             {
                 for (int k = 0; k < t; k++)
@@ -83,14 +108,7 @@ string* create_string_matrix (int** Q, int n)
                     }
                 }
             }
-
-
-
-            /*string str = to_string(Q[i][j] * Q[i+1][j]);
-            int len*/
-
             S[i] += s + " ";
-
         }
         cout << endl;
     }
@@ -100,6 +118,7 @@ string* create_string_matrix (int** Q, int n)
 
  void print_str_matrix (string* S, int m)
  {
+     m--;
      cout << endl << "String matrix:" << endl;
      for (int i =0; i < m; i++)
         cout << S[i] << endl;

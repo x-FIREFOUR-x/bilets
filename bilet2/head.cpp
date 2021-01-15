@@ -14,7 +14,7 @@ int** create_G (int m)
     {
         for(int j =0; j < m; j++)
         {
-            G[i][j] = rand()% 1001 ;
+            G[i][j] = rand()% 1001;
             cout << fixed << setw(4) << G[i][j] << " ";
         }
         cout << endl;
