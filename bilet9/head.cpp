@@ -146,7 +146,7 @@ string* transform_V (int** D, int k, int n)
                 V[i] += to_string(D[i][j]) + " " ;
             }
         }
-        if (V[i].length() > 2)
+        if (V[i].length() > 1)
             V[i].pop_back();
         V[i] += ")" ;
         V[i] += "(" ;
