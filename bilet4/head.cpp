@@ -111,3 +111,110 @@ float** create_matrix_D(float** H, int& m, int n, int line)
 
 
 }
+
+string* transform_matrix (float** D, int m, int n)
+{
+    string* R = new string [m];
+
+    for(int i =0; i < m; i++)
+    {
+        for(int j =0; j < n; j++)
+        {
+            int numb = (int) D[i][j];
+            int a = 0;
+            int b = 0;
+            if (numb == 8)
+            {
+                a = 1;
+                b = 1;
+            }
+            else
+            {
+                switch (numb % 10)
+                {
+                case 0 : b = numb / 5 ; a = 0; break;
+                case 5 : b = numb / 5 ; a = 0; break;
+                case 1 : a = 7; b = (numb - 21) / 5; break;
+                case 2 : a = 4; b = (numb - 12) / 5; break;
+                case 3 : a = 1; b = (numb - 3) / 5; break;
+                case 4 : a = 8; b = (numb - 24) / 5; break;
+                case 6 : a = 2; b = (numb - 6) / 5; break;
+                case 7 : a = 9; b = (numb - 27) / 5; break;
+                case 8 : a = 6; b = (numb - 18) / 5; break;
+                case 9 : a = 3; b = (numb - 9) / 5; break;
+                }
+            }
+            R[i] = R[i] + "3" + "*" + to_string(a) + "+" + "5" + "*" + to_string(b) + " " ;
+        }
+    }
+    return R;
+}
+void print_array (string* R, int m)
+{
+    cout << endl << "Array string R: " << endl;
+    for(int i =0; i < m; i++)
+        cout << R[i] << endl;
+}
+
+string*  sort_lek (float** D, int m, int n)
+{
+    string** R = new string* [m];
+    for (int i =0; i <m; i++)
+        R[i] = new string [n];
+
+    for(int i =0; i < m; i++)
+    {
+        for(int j =0; j < n; j++)
+        {
+            int numb = (int) D[i][j];
+            int a = 0;
+            int b = 0;
+            if (numb == 8)
+            {
+                a = 1;
+                b = 1;
+            }
+            else
+            {
+                switch (numb % 10)
+                {
+                case 0 : b = numb / 5 ; a = 0; break;
+                case 5 : b = numb / 5 ;a = 0; break;
+                case 1 : a = 7; b = (numb - 21) / 5; break;
+                case 2 : a = 4; b = (numb - 12) / 5; break;
+                case 3 : a = 1; b = (numb - 3) / 5; break;
+                case 4 : a = 8; b = (numb - 24) / 5; break;
+                case 6 : a = 2; b = (numb - 6) / 5; break;
+                case 7 : a = 9; b = (numb - 27) / 5; break;
+                case 8 : a = 6; b = (numb - 18) / 5; break;
+                case 9 : a = 3; b = (numb - 9) / 5; break;
+
+                }
+            }
+            R[i][j] = "3*" + to_string(a) + "+5*" + to_string(b);
+        }
+    }
+
+    for (int i =0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            for (int k = j+1; k < n; k++)
+            if (R[i][j] > R[i][k])
+                {
+                    string box = R[i][j];
+                    R[i][j] = R[i][k];
+                    R[i][k] = box;
+                }
+        }
+    }
+    string* G = new string [m];
+    for (int i =0; i < m; i++)
+    {
+        for (int j =0; j < n; j++)
+        {
+            G[i] += R[i][j] + " " ;
+        }
+    }
+    return G;
+}

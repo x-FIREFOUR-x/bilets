@@ -56,18 +56,23 @@ int  search_special (int** Q, int& m, int n, int& line)
     {
         cout << endl << "Special element: " << special << endl;
         m++;
+        return special;
     }
     else
     {
         cout << endl << "!Matrix have not special element!" << endl;
+        line = n++;
+        return 10001;
     }
 
 
-    return special;
+
 }
 
 int** add_line(int** Q, int m, int n, int line)
 {
+    if (line < n)
+    {
     //m++;
     int** A = new int* [m];
     for (int i = 0; i < m; i++)
@@ -85,6 +90,9 @@ int** add_line(int** Q, int m, int n, int line)
          A[m-1][i] = Q[line][i];
 
     return A;
+    }
+    else
+        return Q;
 }
 string* create_string_matrix (int** Q,int m, int n)
 {

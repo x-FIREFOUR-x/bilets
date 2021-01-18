@@ -21,5 +21,11 @@ int main()
     cout << endl ;
     print_matrix (D, m, n);
 
+    string* R = transform_matrix (D, m, n);             // transform number matrix's D to number kind 3a + 5b in array string R (late)
+    print_array (R, m);                                 // print array string R
+
+    R = sort_lek (D, m, n);                             // sort type numbers(word) 3a+5b in lines lexicographically in array string R
+    print_array (R, m);                                 // print array R
+
     return 0;
 }

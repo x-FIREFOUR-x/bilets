@@ -16,7 +16,7 @@ int** create_matrix (int m)
     {
         for (int j = 0; j < m; j++)
         {
-            A[i][j] = rand()%224 +33;
+            A[i][j] = rand()%223 +33;
         }
     }
 
